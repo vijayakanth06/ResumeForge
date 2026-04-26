@@ -54,7 +54,7 @@ logger = logging.getLogger(__name__)
 def resume_history_analyze(
     folder_path: str | None = None,
     output_dir: str | None = None,
-) -> str:
+) -> dict:
     """
     Analyze a folder of resume files, extract the raw data, and prompt
     the calling LLM to deduplicate and structure it into a Markdown file.
@@ -66,9 +66,12 @@ def resume_history_analyze(
                      in the project root.
 
     Returns:
-        A string containing the raw unstructured text from all resumes,
-        prefaced with a strict instruction to the client LLM to format
-        and save the data as a perfectly structured Markdown file.
+        A dict with the following keys:
+          - ``success`` (bool): ``True`` if the pipeline completed successfully.
+          - ``prompt`` (str): The formatted prompt for the calling LLM (on success).
+          - ``files_processed`` (list[str]): Names of files successfully processed.
+          - ``files_failed`` (list[str]): Names of files that failed extraction.
+          - ``errors`` (list[str]): Error messages (populated on failure).
     """
     result = AnalysisResult()
 
@@ -170,14 +173,38 @@ RAW DATA:
 ================
 {full_raw_text}
 """
-        return prompt
+        return {
+            "success": True,
+            "prompt": prompt,
+            "files_processed": result.files_processed,
+            "files_failed": result.files_failed,
+            "errors": result.errors,
+        }
 
     except (FolderNotFoundError, NoResumesFoundError) as e:
-        return f"Input error: {e}"
+        result.errors.append(f"Input error: {e}")
+        return {
+            "success": False,
+            "errors": result.errors,
+            "files_processed": result.files_processed,
+            "files_failed": result.files_failed,
+        }
     except ResumeMCPError as e:
-        return f"Pipeline error: {e}"
+        result.errors.append(f"Pipeline error: {e}")
+        return {
+            "success": False,
+            "errors": result.errors,
+            "files_processed": result.files_processed,
+            "files_failed": result.files_failed,
+        }
     except Exception as e:
-        return f"Unexpected error in resume_history_analyze: {e}"
+        result.errors.append(f"Unexpected error in resume_history_analyze: {e}")
+        return {
+            "success": False,
+            "errors": result.errors,
+            "files_processed": result.files_processed,
+            "files_failed": result.files_failed,
+        }
 
 
 # ──────────────────────────────────────────────────────────────────────
