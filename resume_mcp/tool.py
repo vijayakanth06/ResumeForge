@@ -183,28 +183,29 @@ RAW DATA:
 
     except (FolderNotFoundError, NoResumesFoundError) as e:
         result.errors.append(f"Input error: {e}")
-        return {
-            "success": False,
-            "errors": result.errors,
-            "files_processed": result.files_processed,
-            "files_failed": result.files_failed,
-        }
+        return _error_result(result)
     except ResumeMCPError as e:
         result.errors.append(f"Pipeline error: {e}")
-        return {
-            "success": False,
-            "errors": result.errors,
-            "files_processed": result.files_processed,
-            "files_failed": result.files_failed,
-        }
+        return _error_result(result)
     except Exception as e:
         result.errors.append(f"Unexpected error in resume_history_analyze: {e}")
-        return {
-            "success": False,
-            "errors": result.errors,
-            "files_processed": result.files_processed,
-            "files_failed": result.files_failed,
-        }
+        return _error_result(result)
+
+
+# ──────────────────────────────────────────────────────────────────────
+# Helpers
+# ──────────────────────────────────────────────────────────────────────
+
+
+def _error_result(result: AnalysisResult) -> dict:
+    """Return a consistent failure dict from an AnalysisResult."""
+    return {
+        "success": False,
+        "prompt": "",
+        "errors": result.errors,
+        "files_processed": result.files_processed,
+        "files_failed": result.files_failed,
+    }
 
 
 # ──────────────────────────────────────────────────────────────────────
