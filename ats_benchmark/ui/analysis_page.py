@@ -51,7 +51,7 @@ def render_analysis_page():
         })
 
     df_leaderboard = pd.DataFrame(leaderboard_rows)
-    st.dataframe(df_leaderboard, use_container_width=True, hide_index=True)
+    st.dataframe(df_leaderboard, width="stretch", hide_index=True)
 
     # ----------------------------------------------------
     # Visual Chart: Average Advantage by Model
@@ -69,7 +69,7 @@ def render_analysis_page():
     
     if chart_data:
         df_chart = pd.DataFrame(chart_data).set_index("Model")
-        st.bar_chart(df_chart, use_container_width=True)
+        st.bar_chart(df_chart, width="stretch")
 
     # ----------------------------------------------------
     # JD Level Breakdown
@@ -91,7 +91,7 @@ def render_analysis_page():
             "AI Win Rate": f"{j['ai_win_rate_percent']}% ({j['ai_wins']}W-{j['human_wins']}L-{j['ties']}T)",
         })
     df_jd = pd.DataFrame(jd_rows)
-    st.dataframe(df_jd, use_container_width=True, hide_index=True)
+    st.dataframe(df_jd, width="stretch", hide_index=True)
 
     # ----------------------------------------------------
     # Category Level Breakdown
@@ -115,4 +115,4 @@ def render_analysis_page():
             "Ties": c["ties"],
         })
     df_cat = pd.DataFrame(cat_rows)
-    st.dataframe(df_cat, use_container_width=True, hide_index=True)
+    st.dataframe(df_cat, width="stretch", hide_index=True)

@@ -271,9 +271,9 @@ def render_entry_page():
     btn_col1, btn_col2, btn_col3 = st.columns([2, 1, 3])
 
     with btn_col1:
-        save_clicked = st.button("💾 Save Comparison Record", type="primary", use_container_width=True)
+        save_clicked = st.button("💾 Save Comparison Record", type="primary", width="stretch")
     with btn_col2:
-        reset_clicked = st.button("🔄 Clear Form", use_container_width=True)
+        reset_clicked = st.button("🔄 Clear Form", width="stretch")
 
     # Handle Reset
     if reset_clicked:

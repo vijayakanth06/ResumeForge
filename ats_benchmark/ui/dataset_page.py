@@ -46,7 +46,7 @@ def render_dataset_page():
                 data=csv_data,
                 file_name="ats_resume_benchmark_28cols.csv",
                 mime="text/csv",
-                use_container_width=True,
+                width="stretch",
             )
         with exp_col2:
             st.download_button(
@@ -54,7 +54,7 @@ def render_dataset_page():
                 data=json_data,
                 file_name="ats_resume_benchmark.json",
                 mime="application/json",
-                use_container_width=True,
+                width="stretch",
             )
         with exp_col3:
             st.download_button(
@@ -62,10 +62,10 @@ def render_dataset_page():
                 data=xlsx_data,
                 file_name="ats_resume_benchmark_workbook.xlsx",
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                use_container_width=True,
+                width="stretch",
             )
         with exp_col4:
-            if st.button("💾 Backup SQLite DB", use_container_width=True):
+            if st.button("💾 Backup SQLite DB", width="stretch"):
                 backup_path = db.backup_database("manual_snapshot")
                 st.success(f"Snapshot created: `{backup_path.name}`")
     else:
@@ -128,7 +128,7 @@ def render_dataset_page():
             })
         
         df = pd.DataFrame(display_rows)
-        st.dataframe(df, use_container_width=True, hide_index=True)
+        st.dataframe(df, width="stretch", hide_index=True)
 
         # ----------------------------------------------------
         # Deep-Dive Record Inspector & Delete

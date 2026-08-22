@@ -8,15 +8,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Exactly 10 Controlled Models
 CONTROLLED_MODELS: List[str] = [
     "Gemini_3.6_flash",
+    "Gemini_3.7_flash",
+    "claude_sonnet_4.6",
+    "claude_opus_4.6",
+    "GPT_OSS_120B",
+    "NVIDIA Nemotron 3 Nano 30B A3B",
     "gpt_oss : 20B",
-    "gpt_oss : 120b",
-    "Poolside Laguna S 2.1",
-    "Poolside Laguna XS 2.1",
     "cohere/north-mini-code",
-    "nvidia/nemotron-3.5-lightning",
+    "Poolside Laguna S 2.1",
     "nvidia/nemotron-3-ultra-550b-a55b",
-    "liquid/lfm-2.5-2.6b",
-    "dots-studio/dots-3-note-preview",
 ]
 
 # Exactly 5 Controlled Job Descriptions
