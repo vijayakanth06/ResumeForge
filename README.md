@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ ResumeForge
+# ⚡ ResumeForge - OPENSOURCE
 
 ### A modular MCP server that turns your career data into structured Markdown — and tailors it to any job description for maximum ATS score.
 
