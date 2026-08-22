@@ -28,26 +28,22 @@ for this specific job.
 MANDATORY RULES (DO NOT VIOLATE):
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+## STRICT 1-PAGE CONSTRAINT (450-550 Words):
+- The entire resume MUST fit strictly onto ONE single physical page.
+- Keep every section compact, ultra-concise, and high-impact. Do NOT exceed 1 page!
+
 ## STATIC SECTIONS (Copy exactly — DO NOT modify):
 These must appear in every generated resume without any changes:
-- **Identity** — Full name, email, phone, LinkedIn, GitHub, portfolio links
-- **Education** — Degree, university, CGPA, graduation year
-- **Certifications & Awards** — All certifications and hackathon achievements
+- **Identity** — Full name, email, phone, LinkedIn, GitHub, portfolio links (compact 1-2 lines)
+- **Education** — Degree, university, CGPA, graduation year (compact 1-2 lines)
+- **Certifications & Awards** — Top certifications and hackathon achievements (2-3 bullet lines)
 
 ## DYNAMIC SECTIONS (Tailor for ATS — use your intelligence):
 These must be strategically selected and rewritten to match the JD:
-- **Professional Summary** — Write a 2-3 line summary highlighting the
-  candidate's fit for THIS specific role using JD keywords
-- **Skills** — Select and organize skills from the biography that match
-  the JD requirements. Group into categories (Languages, Frameworks,
-  AI/ML, Databases, Cloud, Tools, Soft Skills). Prioritize JD keywords.
-- **Experience** — Select relevant roles. Rewrite bullet points to
-  emphasize responsibilities and achievements that align with the JD.
-  Use action verbs and quantified metrics where available.
-- **Projects** — Select the TOP projects most relevant to this role.
-  Rewrite descriptions to highlight technologies and outcomes that
-  match the JD requirements. Include tech stack for each project.
-- **Area of Interest** — List 3-5 interests that align with the JD domain.
+- **Professional Summary** — Strictly a 2-3 line summary highlighting the candidate's fit for THIS specific role using top JD keywords.
+- **Skills** — Select and organize skills from the biography that match the JD requirements. Group into categories (Languages, Frameworks, Cloud & DevOps, Databases, AI/ML & Tools). 4-5 lines max.
+- **Experience** — Select top 2-3 relevant roles. Strictly 2-3 concise bullets per role using action verbs and quantified metrics (X-Y-Z formula).
+- **Projects** — Select at most 4 projects (top 2 to 4 projects) most relevant to this role. Include bold tech stack (**Tech:** React, Python, FastAPI) and 1-2 concise result bullets per project.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 OUTPUT FORMAT:
